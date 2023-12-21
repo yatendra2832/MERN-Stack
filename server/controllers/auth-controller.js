@@ -1,4 +1,6 @@
 const User = require('../models/user-model')
+const bcrypt = require('bcryptjs')
+
 // *--------------------------------------------
 // Home Logic
 // *--------------------------------------------
@@ -30,15 +32,19 @@ const register = async (req, res) => {
             return res.status(400).json({ msg: "Email already exists" })
         }
 
-        await User.create({
+        // Hash Password
+        // const saltRound = 10;
+        // const hash_password = await bcrypt.hash(password, saltRound);
+
+        const userCreated = await User.create({
             username,
             email,
             phone,
             password
         })
         res
-            .status(200)
-            .json({ msg: req.body })
+            .status(201)
+            .json({ msg: userCreated })
     } catch (error) {
         res.status(400).send({ msg: "Page not found" })
     }
