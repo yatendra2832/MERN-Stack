@@ -14,14 +14,7 @@ const home = async (req, res) => {
 // *--------------------------------------------
 // Registration Logic
 // *--------------------------------------------
-/*
-1. Get Registration Data : Retrieve user data(username, email, password) from the request body
-2. Check Email existence : Check if the email already exists in the database
-3.Hash Password: security hash the password.
-4. create User : Create a new user in the database with the hashed password
-5.Save to DB : save user data to the database.
-6. Send Response : Respond with the  "Registration Successful"  or handle the error 
-*/
+
 const register = async (req, res) => {
     try {
         const { username, email, phone, password } = req.body;
@@ -32,10 +25,6 @@ const register = async (req, res) => {
             return res.status(400).json({ msg: "Email already exists" })
         }
 
-        // Hash Password
-        // const saltRound = 10;
-        // const hash_password = await bcrypt.hash(password, saltRound);
-
         const userCreated = await User.create({
             username,
             email,
@@ -45,7 +34,7 @@ const register = async (req, res) => {
         res
             .status(201)
             .json({
-                msg: userCreated,
+                msg: "User Registration Successfully",
                 token: await userCreated.generateToken(),
                 userId: userCreated._id.toString()
             })
