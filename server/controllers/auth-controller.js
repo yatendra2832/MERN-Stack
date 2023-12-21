@@ -14,9 +14,10 @@ const home = async (req, res) => {
 // *--------------------------------------------
 const register = async (req, res) => {
     try {
+
         res
             .status(200)
-            .send('<H1>Welcome to the Registration router using the controller </H1>')
+            .json({ msg: req.body })
     } catch (error) {
         res.status(400).send({ msg: "Page not found" })
     }
