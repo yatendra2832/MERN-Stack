@@ -44,9 +44,13 @@ const register = async (req, res) => {
         })
         res
             .status(201)
-            .json({ msg: userCreated })
+            .json({
+                msg: userCreated,
+                token: await userCreated.generateToken(),
+                userId: userCreated._id.toString()
+            })
     } catch (error) {
-        res.status(400).send({ msg: "Page not found" })
+        res.status(500).json({ msg: "internal Server Error" })
     }
 }
 
