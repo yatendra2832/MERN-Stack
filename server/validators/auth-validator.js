@@ -28,4 +28,4 @@ const signupSchema = z.object({
         .trim()
 })
 
-module.exports = { signupSchema }
+module.exports = signupSchema 
