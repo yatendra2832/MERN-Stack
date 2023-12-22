@@ -43,6 +43,15 @@ userSchema.pre('save', async function (next) {
 
 })
 
+// Compare password
+userSchema.methods.matchPassword = async function (password) {
+    try {
+        return await bcrypt.compare(password, this.password);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 // Generate Token
 userSchema.methods.generateToken = async function () {
     try {
