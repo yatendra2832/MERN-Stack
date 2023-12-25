@@ -1,6 +1,6 @@
 .container {
   max-width: 140rem;
-  padding: 2rem 2rem;
+  padding: 4.2rem 5rem;
   display: flex;
   justify-content: space-between;
 }
@@ -12,9 +12,9 @@ ul {
 }
 
 .logo-brand a {
-  font-size: 1.5rem;
+  font-size: 2.6rem;
   font-weight: bolder;
-  margin: 0 1.2rem;
+  /* margin: 1.6rem 1.2rem; */
   text-decoration: none;
 }
 ul li a {
