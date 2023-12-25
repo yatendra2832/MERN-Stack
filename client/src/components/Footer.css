@@ -1,0 +1,18 @@
+/* Footer.css */
+
+.footer-container {
+  background-color: #646cff;
+  color: #fff;
+  padding: 8px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.company-name {
+  font-size: 18px;
+  margin: 0;
+  text-transform: capitalize;
+  font-weight: bolder;
+}
