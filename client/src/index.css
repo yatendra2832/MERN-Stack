@@ -68,6 +68,10 @@ li {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.grid-three-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .grid-four-cols {
   grid-template-columns: repeat(4, 1fr);
 }
@@ -281,4 +285,79 @@ button:hover {
   margin: 0 0 0 8rem;
   font-size: 24px;
   color: #333;
+}
+
+/* ********************************************* */
+@media (width <= 998px) {
+  .grid-two-cols {
+    grid-template-columns: 1fr;
+  }
+  .grid-three-cols {
+    grid-template-columns: 1fr;
+  }
+  .section-services {
+    & .grid-three-cols {
+      grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    }
+  }
+
+  .section-registration {
+    & .container {
+      & .reg-img img {
+        width: 60%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (width <= 798px) {
+  html {
+    font-size: 40.25%;
+  }
+
+  .services-img {
+    width: 50%;
+    height: auto;
+  }
+  .hero-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .service-header,
+  .service-para {
+    text-align: center;
+  }
+  .section-registration {
+    & .container {
+      & .reg-img img {
+        width: 50%;
+        height: auto;
+      }
+    }
+
+    & .registration-form {
+      & input {
+        width: 100%;
+        padding: 0.6rem 0.6rem;
+      }
+    }
+  }
+}
+
+/* Service section styling */
+
+.service-header {
+  margin: 1rem 0;
+  font-size: 3rem;
+}
+
+.service-para {
+  margin: 2rem 0;
+  font-size: 1.4rem;
+}
+.box1 {
+  padding: 2rem 4rem;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
