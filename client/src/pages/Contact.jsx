@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Contact = () => {
-  const [user, setUser] = useState({
+  const [contact, setContact] = useState({
     username: "",
     email: "",
     message: "",
@@ -10,12 +10,12 @@ const Contact = () => {
   const handleInputs = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setUser({ ...user, [name]: value });
+    setContact({ ...contact, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
+    console.log(contact);
   };
   return (
     <section>
@@ -44,7 +44,7 @@ const Contact = () => {
                     placeholder="Enter your name"
                     required
                     autoComplete="off"
-                    value={user.username}
+                    value={contact.username}
                     onChange={handleInputs}
                   />
                 </div>
@@ -57,7 +57,7 @@ const Contact = () => {
                     placeholder="Enter email"
                     required
                     autoComplete="off"
-                    value={user.email}
+                    value={contact.email}
                     onChange={handleInputs}
                   />
                 </div>
@@ -70,7 +70,7 @@ const Contact = () => {
                     placeholder="Type your message..."
                     required
                     autoComplete="off"
-                    value={user.message}
+                    value={contact.message}
                     onChange={handleInputs}
                   />
                 </div>
@@ -82,7 +82,19 @@ const Contact = () => {
             </div>
           </div>
         </div>
+        {/* contact section end */}
       </main>
+      <div className="section-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14000.083743187191!2d77.48301869800453!3d28.689020333755025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf230c51204b1%3A0xd053494ad5b99485!2sGovindpuram%2C%20Ghaziabad%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1703498359861!5m2!1sen!2sin"
+          width="100%"
+          height="450"
+          // style={"border:0"}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
     </section>
   );
 };
