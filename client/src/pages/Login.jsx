@@ -32,7 +32,7 @@ const Login = () => {
 
           {/* Login form */}
           <div className="Login-form">
-            <h1 className='main-heading mb-3'>Login Forn</h1>
+            <h1 className='main-heading mb-3'>Login Form</h1>
             <br />
 
             <form  onSubmit={handleSubmit}>
