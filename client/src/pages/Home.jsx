@@ -1,8 +1,10 @@
 import React from "react";
+import TypedText from "../components/Typed";
 
 const Home = () => {
   return (
     <>
+      {/* <TypedText /> */}
       <main>
         <section className="section-hero">
           <div className="container grid grid-two-cols">
