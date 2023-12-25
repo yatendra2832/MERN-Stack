@@ -90,9 +90,9 @@ button:hover {
 }
 
 .secondary-button {
-  background-color: transparent;
+  /* background-color: transparent; */
   border-radius: 2px solid black;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
   margin-left: 3.2rem;
 }
 /* State Rules */
