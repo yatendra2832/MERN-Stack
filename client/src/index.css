@@ -233,3 +233,45 @@ button:hover {
   border: 2px solid grey;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
+
+/* error page styling */
+#error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#error-page .content {
+  max-width: 70rem;
+  text-align: center;
+}
+
+.content h2.header {
+  font-size: 8vw;
+  line-height: 1em;
+}
+.content h4 {
+  font-size: 5vw;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 0;
+}
+.btns > a {
+  text-decoration: none;
+  text-transform: capitalize;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px rgba(21, 5, 240, 0.4);
+  padding: 5px 10px;
+}
+
+.btns > a:first-child {
+  background-color: #007bff;
+  color: #fff;
+}
+.btns > a:last-child {
+  background-color: #fff;
+  color: #007bff;
+}
