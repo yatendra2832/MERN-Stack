@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   // Handling input values
   const handleInputs = (e) => {
@@ -14,9 +16,28 @@ const Login = () => {
   };
 
   // Hanlding form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      if (response.ok) {
+        alert(`Login Successfully `);
+        setUser({ email: "", password: "" });
+        navigate("/");
+      }
+      console.log(response);
+    } catch (error) {
+      console.log("Login Error:", error);
+    }
   };
 
   return (
