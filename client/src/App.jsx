@@ -5,6 +5,7 @@ import Contact from "./pages/Contact";
 import Service from "./pages/Service";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Logout from "./pages/Logout";
 import Error from "./pages/Error";
 
 import Navbar from "./components/Navbar";
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/service" element={<Service />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
