@@ -16,7 +16,7 @@ const authMiddleware = async (req, res, next) => {
         console.log(isVerified);
 
         const userData = await User
-            .findOne({ _id: isVerified.userId })
+            .findOne({ email: isVerified.email })
             .select({
                 password: 0,
             });
@@ -28,8 +28,6 @@ const authMiddleware = async (req, res, next) => {
     } catch (error) {
         return res.status(401).json({ msg: 'Token is not valid' });
     }
-
-
 }
 
 module.exports = authMiddleware;

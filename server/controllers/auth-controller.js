@@ -81,9 +81,7 @@ const user = async (req, res) => {
     try {
         const userData = req.user;
         console.log(userData);
-        res.status(200).json({
-            msg: "Hi Frontend user data",
-        })
+        res.status(200).json({ userData })
     } catch (error) {
         console.log(`Error form user Route ${error}`);
     }
