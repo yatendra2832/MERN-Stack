@@ -79,8 +79,8 @@ const login = async (req, res) => {
 // *--------------------------------------------
 const user = async (req, res) => {
     try {
-        // const userData = req.user;
-        // console.log(userData);
+        const userData = req.user;
+        console.log(userData);
         res.status(200).json({
             msg: "Hi Frontend user data",
         })
