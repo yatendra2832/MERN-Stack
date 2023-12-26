@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useAuth } from "../store/auth";
 const Register = () => {
   const [user, setUser] = useState({
     username: "",
@@ -7,6 +7,8 @@ const Register = () => {
     phone: "",
     password: "",
   });
+
+  const { storeTokenInLS } = useAuth();
 
   // handling the input values
   const handleInputs = (e) => {
@@ -28,6 +30,10 @@ const Register = () => {
         body: JSON.stringify(user),
       });
       if (response.ok) {
+        const res_data = await response.json();
+        console.log("Response form server:", res_data);
+        storeTokenInLS(res_data.token);
+
         alert("Registration Successful");
         setUser({ username: "", email: "", phone: "", password: "" });
       }
