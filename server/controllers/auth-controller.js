@@ -74,4 +74,22 @@ const login = async (req, res) => {
     }
 }
 
-module.exports = { home, register, login }
+// *--------------------------------------------
+// To send user data to frontend   Logic
+// *--------------------------------------------
+const user = async (req, res) => {
+    try {
+        // const userData = req.user;
+        // console.log(userData);
+        res.status(200).json({
+            msg: "Hi Frontend user data",
+        })
+    } catch (error) {
+        console.log(`Error form user Route ${error}`);
+    }
+}
+
+
+
+
+module.exports = { home, register, login, user }
