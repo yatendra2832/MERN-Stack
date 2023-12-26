@@ -1,12 +1,13 @@
 import React from "react";
-
+import { useAuth } from "../store/auth";
 const About = () => {
+  const { user } = useAuth();
   return (
     <>
       <section className="section-hero">
         <div className="container grid grid-two-cols">
           <div className="hero-content">
-            <p>Welcome , Yatendra Singh</p>
+            <p>Welcome , {user?user.username:"To our Website"}</p>
             <h1>Why Choose YadavjiEditing ?</h1>
             <p>
               Expertise: Our team consist of experienced IT professionals who
