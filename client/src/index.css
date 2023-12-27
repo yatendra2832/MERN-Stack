@@ -350,14 +350,28 @@ button:hover {
 
 .service-header {
   margin: 1rem 0;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .service-para {
-  margin: 2rem 0;
+  margin: 0rem 0;
   font-size: 1.4rem;
 }
 .box1 {
-  padding: 2rem 4rem;
+  padding: 1rem 4rem;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-in-out;
+}
+.box1:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 2px 2px 2px rgba(41, 8, 255, 0.4);
+}
+
+.section-heading {
+  text-align: center;
+}
+.main-heading {
+  display: inline-block;
+  border-bottom: 4px solid #0056b3;
+  border-radius: 15px;
 }

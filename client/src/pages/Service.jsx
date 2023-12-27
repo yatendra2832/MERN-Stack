@@ -6,7 +6,7 @@ const Service = () => {
     <>
       {/* Service Section */}
       <section>
-        <div className="container">
+        <div className="section-heading">
           <h1 className="main-heading">Our Services</h1>
         </div>
         <div className="container grid grid-three-cols">
