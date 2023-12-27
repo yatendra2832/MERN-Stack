@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   // State to store the authentication token
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState("");
+  const [services, setServices] = useState("");
 
   // Function to store the token in both state and local storage
   const storeTokenInLS = (serverToken) => {
@@ -17,8 +18,6 @@ export const AuthProvider = ({ children }) => {
 
   // Check if the user is logged in based on the existence of the token
   let isLoggedIn = !!token;
-  console.log("token", token);
-  console.log("isLoggedin ", isLoggedIn);
 
   // Function to handle user logout by clearing the token from state and local storage
   const LogoutUser = () => {
@@ -43,15 +42,30 @@ export const AuthProvider = ({ children }) => {
       console.error("Error Fetching user data:", error);
     }
   };
-
+  // to fetch the services dataa from the backend
+  const getServiceData = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/data/service", {
+        method: "GET",
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setServices(data.data);
+        console.log(data.data);
+      }
+    } catch (error) {
+      console.log("Error Fetching user data:", error);
+    }
+  };
   useEffect(() => {
     userAuthentication();
+    getServiceData();
   }, []);
 
   // Provide the authentication context value to the components within the provider
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, storeTokenInLS, LogoutUser, user }}
+      value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, services }}
     >
       {children}
     </AuthContext.Provider>

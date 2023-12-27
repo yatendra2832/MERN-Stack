@@ -1,63 +1,39 @@
 import React from "react";
-
+import { useAuth } from "../store/auth";
 const Service = () => {
+  const { services } = useAuth();
   return (
     <>
       {/* Service Section */}
       <section>
+        <div className="container">
+          <h1 className="main-heading">Our Services</h1>
+        </div>
         <div className="container grid grid-three-cols">
-          <div className="box1">
-            <div className="hero-image">
-              <img
-                src="/images/services.png"
-                alt="digital marketing"
-                width={"300"}
-                height={"300"}
-                className="services-img"
-              />
-            </div>
-            <h2 className="service-header">Web Development</h2>
-            <p className="service-para">
-              We offer professional web development services tailored to your
-              business needs. Our team of experts will build responsive and
-              user-friendly websites.
-            </p>
-          </div>
-
-          <div className="box1">
-            <div className="hero-image">
-              <img
-                src="/images/seo.png"
-                alt="graphic design"
-                width={"300"}
-                height={"300"}
-                className="services-img"
-              />
-            </div>
-            <h2 className="service-header">Graphic Design</h2>
-            <p className="service-para">
-              Need eye-catching visuals for your brand? Our graphic design
-              services cover everything from logos and branding to marketing
-              materials.
-            </p>
-          </div>
-
-          <div className="box1">
-            <div className="hero-image">
-              <img
-                src="/images/network.png"
-                alt="digital marketing"
-                width={"300"}
-                height={"300"}
-                className="services-img"
-              />
-            </div>
-            <h2 className="service-header">Digital Marketing</h2>
-            <p className="service-para">
-              Enhance your online presence with our digital marketing solutions.
-              From social media management to SEO, we've got you covered.
-            </p>
-          </div>
+          {services.map((curElem, Index) => {
+            const { price, description, provider, service } = curElem;
+            return (
+              <div className="box1" key={Index}>
+                <div className="hero-image">
+                  <img
+                    src="/images/services.png"
+                    alt="digital marketing"
+                    width={"300"}
+                    height={"300"}
+                    className="services-img"
+                  />
+                </div>
+                <div className="card-details">
+                  <div className="grid grid-two-cols">
+                    <p className="service-para">{provider}</p>
+                    <p className="service-para">{price}</p>
+                  </div>
+                  <h2 className="service-header">{service}</h2>
+                  <p className="service-para">{description}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
     </>
