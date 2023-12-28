@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
       if (response.ok) {
         const data = await response.json();
         setServices(data.data);
-        console.log(data.data);
+        // console.log(data.data);
       }
     } catch (error) {
       console.log("Error Fetching user data:", error);

@@ -29,15 +29,17 @@ const Register = () => {
         },
         body: JSON.stringify(user),
       });
-      if (response.ok) {
-        const res_data = await response.json();
-        console.log("Response form server:", res_data);
-        storeTokenInLS(res_data.token);
 
+      const res_data = await response.json();
+      console.log("Response form server:", res_data);
+
+      if (response.ok) {
+        storeTokenInLS(res_data.token);
         alert("Registration Successful");
         setUser({ username: "", email: "", phone: "", password: "" });
+      } else {
+        alert(res_data.extraDetails ? res_data.extraDetails : res_data.message);
       }
-      console.log(response);
     } catch (error) {
       console.log("Register Error:", error);
     }
