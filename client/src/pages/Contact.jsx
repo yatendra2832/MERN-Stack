@@ -37,7 +37,7 @@ const Contact = () => {
       });
       if (response.ok) {
         setContact(defaultContactForm);
-        alert("Message sent successfully");
+        toast.success("Message sent successfully");
       }
     } catch (error) {
       console.log(error);

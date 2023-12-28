@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 const Register = () => {
   const [user, setUser] = useState({
     username: "",
@@ -35,10 +36,10 @@ const Register = () => {
 
       if (response.ok) {
         storeTokenInLS(res_data.token);
-        alert("Registration Successful");
+        toast.success("Registration Successful");
         setUser({ username: "", email: "", phone: "", password: "" });
       } else {
-        alert(res_data.extraDetails ? res_data.extraDetails : res_data.message);
+        toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message);
       }
     } catch (error) {
       console.log("Register Error:", error);
