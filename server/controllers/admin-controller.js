@@ -12,7 +12,18 @@ const getAllUsers = async (req, res, next) => {
         next(error);
     }
 }
+// users delete logic
+const deleteUserById = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const user = await User.deleteOne({ _id: id });
+        return res.status(200).json({ message: 'User deleted successfully' });
+    } catch (error) {
+        next(error)
+    }
+}
 
+// Get all contacts logic
 const getAllContacts = async (req, res, next) => {
     try {
         const contacts = await Contact.find();
@@ -25,4 +36,4 @@ const getAllContacts = async (req, res, next) => {
     }
 }
 
-module.exports = { getAllUsers, getAllContacts };
+module.exports = { getAllUsers, getAllContacts, deleteUserById };
