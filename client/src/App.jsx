@@ -7,9 +7,12 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import Error from "./pages/Error";
+import AdminUsers from "./pages/Admin-users";
+import AdminContacts from "./pages/Admin-contacts";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AdminLayout from "./components/layouts/Admin-Layout";
 
 const App = () => {
   return (
@@ -25,6 +28,11 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<Error />} />
+
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="contact" element={<AdminContacts />} />
+          </Route>
         </Routes>
         <Footer />
       </BrowserRouter>
