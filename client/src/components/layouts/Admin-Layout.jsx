@@ -16,7 +16,7 @@ const AdminLayout = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/admin/contacts">
+                <NavLink to="/admin/contact">
                   <MdMessage />
                   Contacts
                 </NavLink>
