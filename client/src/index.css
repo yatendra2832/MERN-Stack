@@ -375,3 +375,80 @@ button:hover {
   border-bottom: 4px solid #0056b3;
   border-radius: 15px;
 }
+
+/* Admin Panel CSS */
+/* body tr {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(10rem, 1fr));
+  align-items: center;
+  box-shadow: 0 0.3rem 0 grey;
+  margin-bottom: 10px;
+  border-bottom: 3px solid transparent;
+} */
+/* Styles for the admin-users-section */
+.admin-users-section {
+  background-color: #3498db; /* Blue background color */
+  color: #ffffff; /* White text color */
+  padding: 20px 0; /* Add some padding for spacing */
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Styles for the admin-users table */
+.admin-users {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #2980b9;
+  color: #ffffff;
+  font-weight: bolder;
+  font-size: 2rem;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: center;
+}
+td {
+  color: black;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  font-size: 1.8rem;
+}
+
+/* Styles for table rows */
+tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.edit {
+  background: #ffc107;
+  color: #000000;
+}
+.delete {
+  background: #dc3545;
+  color: white;
+}
+
+.edit:hover {
+  background: #ffca28;
+  color: #000000;
+}
+
+.delete:hover {
+  background: #c82333; /* Darken the background color on hover */
+}
