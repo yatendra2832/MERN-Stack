@@ -12,12 +12,35 @@ const getAllUsers = async (req, res, next) => {
         next(error);
     }
 }
+
+// Single user logic
+const getUserById = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const data = await User.findOne({ _id: id }, { password: 0 })
+        return res.status(200).json(data);
+    } catch (error) {
+        next(error)
+    }
+}
+
+// update Logic
+const updateUserById = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const data = await User.updateOne({ _id: id }, { $set: req.body });
+        return res.status(200).json({ message: 'User updated successfully' });
+    } catch (error) {
+        next(error)
+    }
+}
+
 // users delete logic
 const deleteUserById = async (req, res, next) => {
     try {
         const id = req.params.id;
         const user = await User.deleteOne({ _id: id });
-        return res.status(200).json({ message: 'User deleted successfully' });
+        return res.status(200).json(user);
     } catch (error) {
         next(error)
     }
@@ -36,4 +59,4 @@ const getAllContacts = async (req, res, next) => {
     }
 }
 
-module.exports = { getAllUsers, getAllContacts, deleteUserById };
+module.exports = { getAllUsers, getAllContacts, deleteUserById, getUserById, updateUserById };
