@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 const AdminUpdateUser = () => {
   const params = useParams();
   const { authorizationToken } = useAuth();
@@ -39,11 +40,37 @@ const AdminUpdateUser = () => {
   }, []);
 
   const handleInputs = (e) => {
-    // const name = e.target.name;
-    // const value = e.target.value;
-    // setData({ ...data, [name]: value });
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setData({ ...data, [name]: value });
   };
-  const handleSubmit = () => {};
+
+  // to update the data dynamically
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/admin/users/update/${params.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: authorizationToken,
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      if (response.ok) {
+        toast.success("User updated successfully");
+      } else {
+        toast.error("Something went wrong");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="container grid grid-two-cols">
       <div className="update-form">
