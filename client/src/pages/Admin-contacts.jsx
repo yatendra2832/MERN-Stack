@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 const AdminContacts = () => {
   const [contacts, setContacts] = useState([]);
   const { authorizationToken } = useAuth();
@@ -17,6 +18,30 @@ const AdminContacts = () => {
       const contacts = await response.json();
       // console.log(contacts);
       setContacts(contacts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteContact = async (id) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/admin/contacts/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
+      const data = await response.json();
+      // console.log(data);
+      if (response.ok) {
+        getAllContacts();
+        toast.success("Contact deleted successfully");
+      } else {
+        toast.error(data.message);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -60,7 +85,7 @@ const AdminContacts = () => {
                     <td>
                       <button
                         className="delete"
-                        onClick={() => deleteUser(curUser._id)}
+                        onClick={() => deleteContact(curUser._id)}
                       >
                         Delete
                       </button>
