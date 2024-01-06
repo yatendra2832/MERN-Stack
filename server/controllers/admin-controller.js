@@ -30,7 +30,7 @@ const updateUserById = async (req, res, next) => {
     try {
         const id = req.params.id;
         const data = await User.updateOne({ _id: id }, { $set: req.body });
-        console.log(`updateUserById data: ${data}`);
+        // console.log(`updateUserById data: ${data}`);
         return res.status(200).json({ message: 'User updated successfully' });
     } catch (error) {
         next(error)
@@ -55,7 +55,7 @@ const getAllContacts = async (req, res, next) => {
         if (!contacts || contacts.length === 0) {
             return res.status(404).json({ message: 'No contacts found' });
         }
-        return res.status(200).json({ contacts });
+        return res.status(200).json( contacts );
     } catch (error) {
         next(error)
     }

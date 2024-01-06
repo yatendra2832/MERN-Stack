@@ -13,7 +13,7 @@ const AdminUsers = () => {
         },
       });
       const data = await response.json();
-      console.log(data.users);
+      // console.log(data.users);
       setUsers(data.users);
     } catch (error) {
       console.log(error);
