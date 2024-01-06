@@ -71,7 +71,11 @@ const AdminUsers = () => {
                     <td>{curUser.email}</td>
                     <td>{curUser.phone}</td>
                     <td>
-                      <Link to={`/admin/users/${curUser._id}/edit`}>Edit</Link>
+                      <button className="edit">
+                        <Link to={`/admin/users/${curUser._id}/edit`}>
+                          Edit
+                        </Link>
+                      </button>
                     </td>
                     <td>
                       <button
