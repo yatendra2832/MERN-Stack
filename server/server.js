@@ -14,7 +14,7 @@ const connectDB = require('./utils/db')
 const errorMiddleware = require('./middlewares/error-middleware');
 
 var corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://mern-stack-ihux.onrender.com',
     method: "GET, POST, PATCH, DELETE, PUT, HEAD",
     credentials: true,
 }
