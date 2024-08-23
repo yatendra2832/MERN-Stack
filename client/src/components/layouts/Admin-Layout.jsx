@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaUsers, FaHome, FaRegListAlt } from "react-icons/fa";
-import { MdMessage } from "react-icons/Md";
+import { IoMdContact } from "react-icons/io";
 const AdminLayout = () => {
   return (
     <>
@@ -17,7 +17,7 @@ const AdminLayout = () => {
               </li>
               <li>
                 <NavLink to="/admin/contact">
-                  <MdMessage />
+                  <IoMdContact />
                   Contacts
                 </NavLink>
               </li>

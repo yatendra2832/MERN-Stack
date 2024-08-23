@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   // JWT AUTHENTICATION - to get the curretly logging in user data
   const userAuthentication = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/auth/user", {
+      const response = await fetch("https://yadavjiediting-webbackend.onrender.com/api/auth/user", {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   // to fetch the services dataa from the backend
   const getServiceData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/data/service", {
+      const response = await fetch("https://yadavjiediting-webbackend.onrender.com/api/data/service", {
         method: "GET",
       });
       if (response.ok) {

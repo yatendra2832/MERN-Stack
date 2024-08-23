@@ -6,7 +6,7 @@ const AdminUsers = () => {
   const { authorizationToken } = useAuth();
   const getAllUsersData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/users", {
+      const response = await fetch("https://yadavjiediting-webbackend.onrender.com/api/admin/users", {
         method: "GET",
         headers: {
           Authorization: authorizationToken,

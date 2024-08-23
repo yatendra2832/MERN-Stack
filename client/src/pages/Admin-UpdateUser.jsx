@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 const AdminUpdateUser = () => {
   const params = useParams();
   const { authorizationToken } = useAuth();
+  const URL ='https://yadavjiediting-webbackend.onrender.com'
 
   const [data, setData] = useState({
     username: "",
@@ -15,7 +16,7 @@ const AdminUpdateUser = () => {
   const getSingleUserData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/users/${params.id}`,
+        `${URL}/api/admin/users/${params.id}`,
         {
           method: "GET",
           headers: {
@@ -52,7 +53,7 @@ const AdminUpdateUser = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/users/update/${params.id}`,
+        `${URL}/api/admin/users/update/${params.id}`,
         {
           method: "PUT",
           headers: {
